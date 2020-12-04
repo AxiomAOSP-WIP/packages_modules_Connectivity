@@ -99,7 +99,7 @@ public class NetworkDiagnostics {
 
     private static final InetAddress TEST_DNS4 = InetAddresses.parseNumericAddress("1.1.1.1");
     private static final InetAddress TEST_DNS6 = InetAddresses.parseNumericAddress(
-            "2606:4700:4700::1001");
+            "2606:4700:4700::1111");
 
     // For brevity elsewhere.
     private static final long now() {
