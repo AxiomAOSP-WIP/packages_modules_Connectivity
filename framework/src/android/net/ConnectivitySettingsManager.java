@@ -357,6 +357,13 @@ public class ConnectivitySettingsManager {
     public static final int PRIVATE_DNS_MODE_CLOUDFLARE =
             ConnectivitySettingsUtils.PRIVATE_DNS_MODE_CLOUDFLARE;
 
+
+    /**
+     * @hide
+     */
+    public static final int PRIVATE_DNS_MODE_AXIOM =
+            ConnectivitySettingsUtils.PRIVATE_DNS_MODE_AXIOM;
+
     /**
      * One of the private DNS modes that indicates the private DNS mode is automatic, which
      * will try to use the current DNS as private DNS.
@@ -378,12 +385,19 @@ public class ConnectivitySettingsManager {
      */
     public static final String PRIVATE_DNS_SPECIFIER_CLOUDFLARE = "one.one.one.one";
 
+    /**
+     * @hide
+     * Alternative: 1dot1dot1dot1.cloudflare-dns.com
+     */
+    public static final String PRIVATE_DNS_SPECIFIER_AXIOM = "dns.axiomos.pl";
+
 
     /** @hide */
     @Retention(RetentionPolicy.SOURCE)
     @IntDef(value = {
             PRIVATE_DNS_MODE_OFF,
             PRIVATE_DNS_MODE_CLOUDFLARE,
+            PRIVATE_DNS_MODE_AXIOM,
             PRIVATE_DNS_MODE_OPPORTUNISTIC,
             PRIVATE_DNS_MODE_PROVIDER_HOSTNAME,
     })
@@ -821,6 +835,7 @@ public class ConnectivitySettingsManager {
             @NonNull @PrivateDnsMode int mode) {
         if (!(mode == PRIVATE_DNS_MODE_OFF
                 || mode == PRIVATE_DNS_MODE_CLOUDFLARE
+                || mode == PRIVATE_DNS_MODE_AXIOM
                 || mode == PRIVATE_DNS_MODE_OPPORTUNISTIC
                 || mode == PRIVATE_DNS_MODE_PROVIDER_HOSTNAME)) {
             throw new IllegalArgumentException("Invalid private dns mode");
